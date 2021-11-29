@@ -1,0 +1,159 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usecolortheme{rose}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[page number]
+\title{Eine Analyse der 'Stop-and-Frisk' Politik des NYPD im Kontext des Racial Bias Vorwurfes}
+\author{Arthur von der Heyden \\ und \\ Dagmar Lux}
+\date{\today}
+%Auto*innen der Studie und Jahr: Andrew Gelman, Jeffrey Fagan und Alex Kiss, 2007
+\begin{document}
+	\begin{frame}
+		\titlepage
+		\title{Eine Analyse der "Stop-and-Frisk" Politik des NYPD im Kontext des Vorwurfes des Racial Bias}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Agenda}
+		\tableofcontents[hideallsubsections]
+	\end{frame}
+	%Dirty Zahlen, weil es mir einfach zu lange gedauert hat zu debuggen
+	\section {1. Hintergrund und Daten}
+		\subsection{Studiengegenstand}
+		\subsection{Stop-and-Frisk}
+		\subsection{Hintergrund: Racial Bias}
+		\subsection{Aufbau des Datensatzes}
+	\section{2. Modelle}
+	\section{3. Resultate}
+		\subsection{Ergebnisse}
+		\subsection{Zusammenfassung}
+	\section{4. Quellen}
+	\section{5. Diskussion}
+	\begin{frame}
+		\frametitle{Studiengegenstand}
+		\textbf{Analyse:} Anhalteraten von NewYorker*innen unterschiedlicher ethnischer Gruppen durch die Straßenpolizei.\newline
+		\newline
+		\textbf{Ziel:} Bewertung der zentralen Behauptung, dass rassenspezifische Anhalteraten nichts anderes widerspiegeln, als rassenspezifische Kriminalitätsraten.
+	\end{frame}
+	\begin{frame}
+		%TODO: Definition highlighten
+		\frametitle{Stop-and-Frisk}
+		\begin{definition}
+			Zivilpersonen auf der Straße vorübergehend \textbf{festhalten}, \textbf{befragen} \& manchmal auch \textbf{durchsuchen}
+		\end{definition}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Hintergrund: Racial Bias}
+		\begin{itemize}
+			\item[\textbullet] \textbf{Späte 1990er:} Besorgnisäußerung über Schikane der Polizei gegenüber Minderheitengruppen
+			\item[\textbullet] \textbf{2000:} Bundesbezirksgericht lässt Verwendung der Rasse als Durchsuchungskriterium zu, wenn eine ausdrückliche rassenspezifische Beschreibung der verdächtigten Person vorliegt
+			\item[\textbullet] \textbf{2005}: Alpert, MacDonald und Dunham finden heraus, dass die Polizei eine Person aus einer Minderheit mit größerer Wahrscheinlichkeit als verdächtig einstuft, durch Berufung auf nicht-verhaltensbezogene Hinweise
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Aufbau des Datensatzes}
+		\begin{itemize}
+			\item[\textbullet] \textbf{UF-250-Formulare:} Aufzeichnungen über Kontrollen des NYPD
+			\item[\textbullet] ca. 175.000 Kontrolldaten von Januar 1998 bis März 1999
+			\item[\textbullet] Ausfüllung des Formulars nur unter bestimmten Bedingungen
+			\item[\textbullet] Untersuchung der Formulare für Stichprobe von 5.000 Fällen \& 10.869 weitere Fälle, die 50\% der Fälle in einer nicht zufälligen Stichprobe von 8 der 75 Polizeibezirken repräsentieren
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Aufbau des Datensatzes}
+		\begin{itemize}
+			\item[\textbullet] \textbf{Ethnische Gruppen:}
+			\begin{itemize}
+				\item[\textbullet] Schwarze (Afroamerikaner*innen)
+				%Eigentlich Latinx, aber ich moechte unsere Studierenden nicht verwirren
+				\item[\textbullet] Hispanoamerikaner*innen (Latinas und Latinos)
+				\item[\textbullet] Weiße (europäische Amerikaner*innen)
+			\end{itemize}
+		\end{itemize}
+		\begin{itemize}
+			\item[\textbullet] \textbf{Bezirke:}
+			\begin{itemize}
+				\item[\textbullet] $<$ 10\% Schwarze Bevölkerung
+				\item[\textbullet] 10 – 40\% Schwarze Bevölkerung
+				\item[\textbullet] $>$ 40\% Schwarze Bevölkerung
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Modelle}
+		Für jede ethnische Gruppe $ e=1, 2, 3$ und Bezirke $p=1, 2, 3$ wird die Anzahl der Stopps $y_{ep}$, mit Hilfe einer \\ \textbf{hierarchischen Poisson Regression} modelliert. \\
+		$n_{ep}$ ist die Anzahl der jeweiligen Festnahmen.
+		\newline
+		\begin{align}& y_{ep} \sim Poisson \biggl(\frac{15}{12}n_{ep}e^{\mu+\alpha_e+\beta_p+\epsilon_{ep}}\biggl), \nonumber \\
+			& \beta_p \sim N(0, \sigma_\beta^2), \quad
+			\epsilon_{ep} \sim N(0, \sigma_\epsilon^2)  \nonumber
+		\end{align}
+		\newline
+		Alternativ werden noch zwei weitere Spezifikationen angepasst:\\
+		\begin{itemize}
+			\item[\textbullet] Modellierung der Variabilität über die Bezirke
+			\item[\textbullet] Modellierung des Verhältnisses von Stopps zu Festnahmen im Vorjahr
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		%TODO: Pfad verallgemeinern 
+		\frametitle{Ergebnisse}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.65\textwidth]{C:/Users/vonderheyden/Downloads/index.jpg}
+			\caption{Geschätzte Rate mit der Personen in den verschiedenen Kategorien gestoppt wurden}
+			\label{fig:Ergebnisse}
+		\end{figure}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Ergebnisse}
+		%Die wichtigsten Parameter sind die Raten der Stopps %$e^{\mu+\alpha_e}$ 
+		%(im Vergleich zu den Festnahmen des Vorjahres)
+		%für $e = 1, 2, 3$ \\
+		%Die Kontrollen wegen Gewaltverbrechen und Waffendelikten machen mehr %als zwei Drittel der Stopps aus. \\
+		% sie waren der umstrittenste  Aspekt bei der \glqq %Stopp-and-Frisk\grqq-Politik. \\ 
+		\begin{table}
+			\begin{tabular}{|l|l|l|}
+				\hline
+				& Schwarze & Hispanics \\
+				\hline
+				Gewaltverbrechen & 2.5x & 1.9x \\
+				\hline
+				Waffendelikte & 1.8x & 1.6x \\
+				\hline
+			\end{tabular}
+		\end{table}
+		\centering... häufiger als Weiße angehalten. \\
+		% In den Kategorien Eigentums- und Drogendelikte wurden Weiße etwas häufiger angehalten. \\
+		%Bei den beiden alternativ Modellen fallen die Ergebnisse ähnlich aus.
+	\end{frame}
+	\begin{frame}
+		\frametitle{Zusammenfassung}
+		\textbf{Ergebnisse:}
+		\begin{itemize}
+			\item[\textbullet] Schwarze und Hispanics werden häufiger gestoppt als Weiße:
+			\begin{itemize}
+				\item[\textbullet] \textbf{Stopps:} 51\% Schwarze, 33\% Hispanics 
+				\item[\textbullet] \textbf{Bevölkerung in NY:} 26\% Schwarze, 24\% Hispanics
+			\end{itemize}
+			\item[\textbullet] Standards für Stopps bei Minderheiten lockerer, Häufigkeit gewollt und Zweckgebunden
+		\end{itemize} 
+			% \item Rassenstereotypisierung Minderwertigkeit Fremdartigkeit
+	\end{frame}
+	\begin{frame}
+		\frametitle{Quellen}
+		Gelman, A., Fagan, J., \& Kiss, A. (2007). An analysis of the New York City police department's 
+		“stop-and-frisk” policy in the context of claims of racial bias. Journal of the American 
+		statistical association, 102(479), 813-823. doi: 10.1198/016214506000001040
+	\end{frame}
+	\begin{frame}
+		\frametitle{Diskussion}
+		\begin{enumerate}
+			\item<1> Glaubt ihr, dass auch in Deutschland Personen aus Minoritätsgruppen öfter untersucht werden als Weiße?
+			\item<2> Aufgrund welcher Indizien würdet ihr als Zivilpolizist*in eine Person anhalten? 
+		\end{enumerate}
+	\end{frame}
+\end{document}
