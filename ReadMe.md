@@ -1,0 +1,1 @@
+## Hier koennen wir ueber die Funktionen diskutieren
