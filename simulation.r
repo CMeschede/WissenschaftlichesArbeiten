@@ -1,4 +1,4 @@
-# Dieses Skript wurde von [x] und [y] geschrieben
+# Dieses Skript wurde von Arthur von der Heyden und Dagmar Lux geschrieben
 
 #(1)
 alter <- round(rnorm(n=100, mean=25, sd=2))
@@ -54,3 +54,20 @@ interesse_an_prog <- simulate_interest_prog(studienfach)
 interesse_an_prog
 
 # (5) 
+
+mathe_LK <- sample(c("ja", "nein"), 100, replace=TRUE)
+mathe_LK
+
+
+
+
+
+
+  
+# Dataframe erstellen
+
+data <- data.frame(alter, studienfach, interesse_an_mathe, interesse_an_prog, mathe_LK)
+data
+
+# Dataframe in CSV konvertieren und bereitstellen (Sie wird gesondert kopiert)
+write.csv(data, "data.csv", row.names = FALSE)
