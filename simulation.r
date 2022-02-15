@@ -58,15 +58,15 @@ interesse_an_prog
 mathe_LK <- sample(c("ja", "nein"), 100, replace=TRUE)
 mathe_LK
 
-
-
+# ID-Spalte
+id <- c(1:100)
 
 
 
   
 # Dataframe erstellen
 
-data <- data.frame(alter, studienfach, interesse_an_mathe, interesse_an_prog, mathe_LK)
+data <- data.frame(id, alter, studienfach, interesse_an_mathe, interesse_an_prog, mathe_LK)
 data
 
 # Dataframe in CSV konvertieren und bereitstellen (Sie wird gesondert kopiert)
