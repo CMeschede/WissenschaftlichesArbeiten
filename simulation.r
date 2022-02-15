@@ -37,10 +37,12 @@ simulate_interest_prog <- function( studienfach ){
   iap <- c()
   for (i in studienfach){
     if(i == "Mathematik"){
-      iap <- append(iap, sample(1:6), replace = TRUE)
+      x <- sample(1:6, size = 1, replace = TRUE)
+      iap <- append(iap, x)
     }
     if(i == "Statistik" | i == "Data Science"){
-      iap <- append(iap, sample(3:7, replace = TRUE, prob = c(0.1, 0.2, 0.25, 0.25, 0.2)))
+      y <- sample(3:7, size = 1, replace = TRUE, prob = c(0.1, 0.2, 0.25, 0.25, 0.2))
+iap <- append(iap, y)
     }
     if(i == "Informatik"){
       iap <- append(iap, 7)
@@ -50,3 +52,5 @@ simulate_interest_prog <- function( studienfach ){
 }
 interesse_an_prog <- simulate_interest_prog(studienfach)
 interesse_an_prog
+
+# (5) 
