@@ -18,7 +18,7 @@ simulate_interest_math <- function( studienfach ){
       iam <- append(iam, 7)
     }
     if(i == "Statistik" | i == "Data Science"){
-      iam <- append(iam, 5)
+      iam <- append(iam, sample(3:7, size = 1, replace = TRUE))
     }
     if(i == "Informatik"){
       iam <- append(iam, 3)
@@ -33,16 +33,15 @@ interesse_an_mathe
 # Interesse an Programmieren: Antworten 1-6 beliebig = Mathestudent*in, 
 # Antworten 3-7 mit Wahscheinlichkeiten = Statistik- oder Data Sciencestudent*in 
 # und 7 = Informatikstudent*in
+
 simulate_interest_prog <- function( studienfach ){
   iap <- c()
   for (i in studienfach){
     if(i == "Mathematik"){
-      x <- sample(1:6, size = 1, replace = TRUE)
-      iap <- append(iap, x)
+      iap <- append(iap, sample(1:6, size = 1, replace = TRUE))
     }
     if(i == "Statistik" | i == "Data Science"){
-      y <- sample(3:7, size = 1, replace = TRUE, prob = c(0.1, 0.2, 0.25, 0.25, 0.2))
-iap <- append(iap, y)
+      iap <- append(iap, sample(3:7, size = 1, replace = TRUE, prob = c(0.1, 0.2, 0.25, 0.25, 0.2)))
     }
     if(i == "Informatik"){
       iap <- append(iap, 7)
@@ -55,8 +54,10 @@ interesse_an_prog
 
 # (5) 
 
-mathe_LK <- sample(c("ja", "nein"), 100, replace=TRUE)
+mathe_LK <- sample(c("ja", "nein"), 100, replace=TRUE, prob = c(0.7, 0.3))
 mathe_LK
+
+
 
 # ID-Spalte
 id <- c(1:100)
