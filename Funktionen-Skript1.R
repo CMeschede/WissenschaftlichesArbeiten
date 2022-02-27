@@ -64,3 +64,23 @@ Teild <- function(x,y){
       "\nDifferenz der arithmetischen Mittel:", mean(A) - mean(B),
       "\nDifferenz der Standardabweichungen:", sd(A) - sd (B))
 }
+
+# (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier kategorialen
+# Variablen erstellt
+
+#Mosaikplot mit drei Variablen:
+Teilf1 <- function(x, y, z, main = "Mosaikplot von drei Variablen",...){
+  # mit ... koennen der Plot-Funktion zusaetzliche Parameter uebergeben werden
+  mymosaic(x, y, z, main, ...)
+}
+
+#Barplots fuer mehrere Variablen:
+Teilf2 <- function(x, main = names(x), ...){
+  # mit ... koennen der Plot-Funktion zusaetzliche Parameter uebergeben werden
+  p <- par(mfrow = c(1,length(x)))
+  for(i in seq(1, length(x))){
+    barplot(table(x[i]), main = main[i], ...)
+  }
+  par(p)
+}
+
