@@ -41,13 +41,16 @@ apply(x, 2, table)
 # zwischen einer metrischen und einer dichotomen Variable berechnet und ausgibt
 
 # x = metrische Variable; y = dichotome Variable
-Teild <- function(x,y,...){
+Teild <- function(x,y){
   # Frage ab, ob die eingegebenen Variablen die erforderliche Form haben
   if(!is.numeric(x)){
     stop("Die Variable x ist nicht numerisch.")
   }
   if(!is.factor(y)){
     stop("Die Variable y ist kein Factor.")
+  }
+  if(length(levels(y)) != 2){
+    stop("Die Variable y ist nicht dichotom.")
   }
   # Erstelle Teildatensaetze der Variable x getrennt nach den Levels von y
   A <- x[which(y == levels(y)[1])]
