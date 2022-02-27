@@ -35,3 +35,29 @@ Teila <- function(x){
 # zwei kategorialen Variablen berechnet ausgibt
 
 apply(x, 2, table)
+
+
+# (d) Eine Funktion, die geeignete deskriptive Statistiken für den Zusammenhang
+# zwischen einer metrischen und einer dichotomen Variable berechnet und ausgibt
+
+# x = metrische Variable; y = dichotome Variable
+Teild <- function(x,y,...){
+  # Frage ab, ob die eingegebenen Variablen die erforderliche Form haben
+  if(!is.numeric(x)){
+    stop("Die Variable x ist nicht numerisch.")
+  }
+  if(!is.factor(y)){
+    stop("Die Variable y ist kein Factor.")
+  }
+  # Erstelle Teildatensaetze der Variable x getrennt nach den Levels von y
+  A <- x[which(y == levels(y)[1])]
+  B <- x[which(y == levels(y)[2])]
+  # Gebe arithmetisches Mittel, Median, Varianz und Standardabweichung aus, um auf Lage
+  # und Streuung zu vergleichen.
+  cat("Für y =", levels(y)[1], ":", " arithmetisches Mittel:", mean(A), ", Median:", median(A),
+      ",\n\t\tVarianz:", var(A), ", Standardabweichung:", sd(A),
+      "\nFür y =", levels(y)[2], ":", " arithmetisches Mittel:", mean(B), ", Median:", median(B),
+      ",\n\t\t Varianz:", var(B), ", Standardabweichung:", sd(B),
+      "\nDifferenz der arithmetischen Mittel:", mean(A) - mean(B),
+      "\nDifferenz der Standardabweichungen:", sd(A) - sd (B))
+}
