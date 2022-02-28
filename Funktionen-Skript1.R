@@ -56,8 +56,24 @@ TeilB<- function(x){
 # (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken für den Zusammenhang zwischen 
 # zwei kategorialen Variablen berechnet ausgibt
 
-TeilC <- function(x){
-apply(x, 2, table)
+# x und y kategoriale Variablen
+TeilC <- function(x, y){
+  X <- matrix(0, length(unique(x)), length(unique(y)))
+  rownames(X) <- names(x)
+  names(X) <- names(y)
+  for(i in 1:length(x)){
+    for(j in 1:length(unique(x))){
+      for(k in 1:length(unique(y))){
+        if(x[i] == sort(unique(x))[j] && y[i] == sort(unique(y))[k]){
+          X[j, k] <- X[j, k] + 1
+        }
+      }
+    }
+  }
+  X <- as.data.frame(X)
+  names(X) <- sort(unique(y))
+  rownames(X) <- sort(unique(x))
+  return(X)
 }
 
 
