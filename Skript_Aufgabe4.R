@@ -6,10 +6,73 @@ daten$studienfach <- as.factor(daten$studienfach)
 daten$mathe_LK <- as.factor(daten$mathe_LK)
 
 # (a)
+TeilA(daten)
 
-# (b)
 
-# (c)
+#                   id     alter interesse_an_mathe interesse_an_prog
+#Minimum        1.0000 19.000000           3.000000          1.000000
+#25 % Quantil  25.7500 24.000000           3.000000          5.000000
+#Median        50.5000 25.000000           4.000000          6.000000
+#Mittelwert    50.5000 25.200000           4.530000          5.580000
+#75 % Quantil  75.2500 27.000000           6.000000          7.000000
+#Maximum      100.0000 29.000000           7.000000          7.000000
+#Varianz      841.6667  3.878788           2.574848          2.286465
+
+#Das Alter liegt zwischen 19 und 29, mit einem Mittelwert von 25.2, einem Median von 25 und einer Varianz von 3.88.
+#Das Interesse an Mathematik liegt zwischen 3 und 7, mit einem Mittelwert von 4.53, einem Median von 4 und einer Varianz von 2.57.
+#Das Interesse an Programmieren liegt zwischen 1 und 7, mit einem Mittelwert von 5.58, einem Median von 6 und einer Varianz von 2.28.
+
+#  (b)
+TeilB(daten)
+
+#$studienfach
+#Mathematik   Informatik Data Science    Statistik 
+#12           26           31           31 
+#Am meisten studieren Statistik oder Data Science, etwas weniger Informatik und sehr wenige Mathematik.
+#$interesse_an_mathe
+#7  3  4  6  5 
+#21 44  9  8 18 
+#Das Interesse an Mathematik liegt hauptsächlich bei 3, 5 und 7.
+
+#$interesse_an_prog
+#2  7  5  6  3  4  1 
+#5 36 21 24  6  7  1 
+#Das Interesse an Programmieren ist hauptsächlich in den höheren Bereichen (zwischen 5 und 7)
+
+#$mathe_LK
+#ja nein 
+#71   29 
+
+#  (c)
+TeilC(daten$studienfach, daten$interesse_an_mathe)
+#              3 4 5 6  7
+#Data Science  8 6 9 4  4
+#Informatik   26 0 0 0  0
+#Mathematik    0 0 0 0 12
+#Statistik    10 3 9 4  5
+#Deutlich sichtbar: Alle Informatikstudenten haben ein Interesse von 3 an Mathematik
+#Alle Mathematikstudenten haben ein Interesse von 7 an Mathematik.
+#Bei den Statistik und Data Science Studenten ist es auf die Klassen 3 bis 7 verteilt.
+
+TeilC(daten$studienfach, daten$interesse_an_prog)
+#             1 2 3 4  5  6  7
+#Data Science 0 0 3 4 11  8  5
+#Informatik   0 0 0 0  0  0 26
+#Mathematik   1 5 2 0  2  2  0
+#Statistik    0 0 1 3  8 14  5
+#Alle Informatikstudenten haben ein Interesse von 7 an Programmieren.
+#Das Interesse an Programmieren ist von Statistik und Data Science Studenten höher als von Mathematikstudenten.
+
+TeilC(daten$interesse_an_mathe, daten$interesse_an_prog)
+#  1 2 3 4 5 6  7
+#3 0 0 1 1 8 6 28
+#4 0 0 1 0 3 4  1
+#5 0 0 1 4 3 7  3
+#6 0 0 1 1 2 1  3
+#7 1 5 2 1 5 6  1
+#Es fällt auf: Die Größte Gruppe sind diejenigen, die ein Interesse von 7 am Programmieren und ein Interesse von 3 an Mathematik haben.
+#Weiter oben ließ sich bereits feststellen, dass 26 dieser 28 die Informatikstudenten sind. Es scheint, als ob ein hohes Interesse an
+#Programmieren mit einem niedrigen Interesse an Mathematik zusammenhängt.
 
 # (d)
 
