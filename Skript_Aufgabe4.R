@@ -25,3 +25,9 @@ TeilF1(daten$interesse_an_mathe,  daten$studienfach, daten$mathe_LK,
 TeilF2(daten[2:6], main = c("Alter", "Studienfach", "Interesse an Mathe",
                             "Interesse an Programmieren", "Mathe LK"))
 
+#Boxplots fuer Alter, Interesse an Mathe und Interesse an Programmieren
+p <- par(mfrow = c(1, 2), las = 1)
+boxplot(daten[2], main = "Boxplot des Alters", ylab = "Alter")
+boxplot(daten[4:5],names = c("Interesse an Mathe", "Interesse an Programmieren"),
+        main = "Boxplots von Interesse an Mathe und an Programmieren")
+par(p)
