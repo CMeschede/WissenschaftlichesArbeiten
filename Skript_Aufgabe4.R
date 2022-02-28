@@ -72,7 +72,7 @@ TeilF1(daten$interesse_an_mathe,  daten$studienfach, daten$mathe_LK,
 TeilF2(daten[2:6], main = c("Alter", "Studienfach", "Interesse an Mathe",
                             "Interesse an Programmieren", "Mathe LK"))
 
-# Das Alter scheint etwa gleichverteilt zu sein.
+# Das Alter scheint etwa normalverteilt zu sein.
 # Die Studienfaecher Data Science und Statistik sind am haeufigsten vertreten,
 # das Fach Informatik etwas weniger und Mathe nur verhaeltnismaessig selten.
 # Das Interesse an Mathe ist bei keinem niedriger als 3, allerdings ist 3 der am
