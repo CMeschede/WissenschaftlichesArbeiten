@@ -29,6 +29,28 @@ Teila <- function(x){
 
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken für kategoriale Variablen 
 # berechnet und ausgibt
+Teilb <- function(x){
+  #Verteilung der einzelnen Studiengaenge
+  anzahl_ds <- length(which(x$studienfach=="Data Science"))
+  anzahl_info <- length(which(x$studienfach=="Informatik"))
+  anzahl_mathe <- length(which(x$studienfach=="Mathematik"))
+  anzahl_stat <- length(which(x$studienfach=="Statistik"))
+  
+  #Verteilung Mathe_LK insgesamt
+  mathelk_ins <- length(which(x$mathe_LK=="ja"))
+  
+  #Verteilung Mathe LK zum Studiengang Data Science
+  lk_ds <- length(which(x$studienfach=="Data Science" & x$mathe_LK=="ja"))
+  
+  #Verteilung Mathe LK zum Studiengang Informatik
+  lk_inf <- length(which(x$studienfach=="Informatik" & x$mathe_LK=="ja"))
+  
+  #Verteilung Mathe LK zum Studiengang Mathematik
+  lk_math <- length(which(x$studienfach=="Mathematik" & x$mathe_LK=="ja"))
+  
+  #Verteilung Mathe LK zum Studiengang Statistik
+  lk_stat <- length(which(x$studienfach=="Statistik" & x$mathe_LK=="ja"))
+}
 
 
 # (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken für den Zusammenhang zwischen 
