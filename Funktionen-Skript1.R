@@ -108,27 +108,25 @@ TeilD <- function(x,y){
 # quantilbasiert kategorisiert (z.B. in „niedrig“, „mittel“, „hoch“)
 TeilE <-function(x){
   dummy <- numeric(length(x))
-  for(i in variable){
-    if(is.numeric(x)){
-      X <- numeric(2)
-      X[1] <- quantile(x, 0.33)
-      X[2] <- quantile(x, 0.66)
+  if(is.numeric(x)){
+    X <- numeric(2)
+    X[1] <- quantile(x, 0.33)
+    X[2] <- quantile(x, 0.66)
+  }else {stop("Die Eingabe ist nicht nummerisch.")}
+  for(j in 1:length(x)){
+    if(x[j] < X[1]){
+      dummy[j] <- "niedrig"
     }
-    for(j in 1:length(x)){
-      if(x[j] < X[1]){
-        dummy[j] <- "niedrig"
+    else{
+      if(x[j] > X[2]){
+        dummy[j] <- "hoch"
       }
       else{
-        if(x[j] > X[2]){
-          dummy[j] <- "hoch"
-        }
-        else{
-          dummy[j] <- "mittel"
-        }
+        dummy[j] <- "mittel"
       }
     }
   }
-  return(dummy)
+  return(table(dummy))
 }
 
 # (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier kategorialen
