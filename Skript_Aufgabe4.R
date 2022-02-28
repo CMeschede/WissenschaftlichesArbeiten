@@ -99,3 +99,23 @@ par(p)
 # in der Box. Das Interesse an Programmieren ist also insgesamt recht hoch.
 # Nach unten gibt es einen Ausreisser.
 
+
+
+#Dichteschaetzung fuer die Variable Alter:
+plot(density(daten$alter, bw = 0.7), main = "Dichteschätzung für das Alters",
+     xlab = "Alter, N = 100, Bandweite = 0.7",ylab = "Dichte")
+# Das Alter scheint etwa normalverteilt zu sein, mit einem Erwartungswert von etwa 26
+
+#Dichteschaetzung fuer die Variable Interesse an Mathematik:
+plot(density(daten$interesse_an_mathe, bw = 0.6),
+     xlab = "Interesse an Mathe, N = 100, Bandweite = 0.6", ylab = "Dichte",
+     main = "Dichteschätzung für das Interesse an Mathematik")
+# Das Interesse an Mathematik weist ein deutliches Maximum bei 3 auf, bei ungeraden
+# sind jeweils lokale Maximalstellen.
+
+#Dichteschaetzung fuer die Variable Interesse an Programmieren:
+plot(density(daten$interesse_an_prog, bw = 0.5),
+     xlab = "Interesse an Programmieren, N = 100, Bandweite = 0.5", ylab = "Dichte",
+     main = "Dichteschätzung für das Interesse an Programmieren")
+# Die geschaetzte Dichte fuer das Interesse an Programmieren ist linksschief mit einem
+# Maximum bei 7.
