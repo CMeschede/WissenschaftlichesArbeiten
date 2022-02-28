@@ -90,22 +90,29 @@ TeilD <- function(x,y){
 }
 # (e) Eine Funktion, die eine mindestens ordinal skalierte Variable
 # quantilbasiert kategorisiert (z.B. in „niedrig“, „mittel“, „hoch“)
-TeilE <- function(x){
-  #Weil wir eine Primzahl (7) zum Aufteilen bekommen, werden die Kategorien ungleich gewichtet eingeteilt:
-  #1 - 3 = niedrig, 4 oder 5 = mittel, 6 oder 7 = hoch
-  res <- c()
-  for( i in x ){
-    if(i == 1 || i == 2 || i == 3){
-      res <- append(res, "niedrig")
+TeilE <-function(x){
+  dummy <- numeric(length(x))
+  for(i in variable){
+    if(is.numeric(x)){
+      X <- numeric(2)
+      X[1] <- quantile(x, 0.33)
+      X[2] <- quantile(x, 0.66)
     }
-    if( i == 4 || i == 5 ){
-      res <- append(res, "mittel")
-    }
-    if( i == 6 || i == 7 ){
-      res <- append(res, "hoch")
+    for(j in 1:length(x)){
+      if(x[j] < X[1]){
+        dummy[j] <- "niedrig"
+      }
+      else{
+        if(x[j] > X[2]){
+          dummy[j] <- "hoch"
+        }
+        else{
+          dummy[j] <- "mittel"
+        }
+      }
     }
   }
-  return(res)
+  return(dummy)
 }
 
 # (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier kategorialen
