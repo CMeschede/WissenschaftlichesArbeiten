@@ -63,12 +63,39 @@ TeilF1(daten$interesse_an_mathe,  daten$studienfach, daten$mathe_LK,
        xlab = "Interesse an Mathe", ylab = "Studienfach",
        col = c("steelblue1", "springgreen3"))
 
+# Personen mit Studienfach Mathematik haben alle maximales Interesse an Mathe.
+# Informatikstudenten haben alle ein Interesse des Wertes 3 an Mathematik.
+# Obwohl alle Studiengaenge relativ mathematisch sind, ist der kleinste angenommene
+# Wert fuer Interesse an Mathe der Groesste, allerdings gibt es keine Personen mit
+# einem Wert fuer Interesse unter 3.
+
 TeilF2(daten[2:6], main = c("Alter", "Studienfach", "Interesse an Mathe",
                             "Interesse an Programmieren", "Mathe LK"))
 
+# Das Alter scheint etwa gleichverteilt zu sein.
+# Die Studienfaecher Data Science und Statistik sind am haeufigsten vertreten,
+# das Fach Informatik etwas weniger und Mathe nur verhaeltnismaessig selten.
+# Das Interesse an Mathe ist bei keinem niedriger als 3, allerdings ist 3 der am
+# haefigsten auftretende Wert fuer Interesse an Mathe. Die ungeraden Zahlen treten
+# haeufiger auf, als die geraden Werte.
+# Das Interesse an Programmieren ist deutlich linksschief verteilt. Der maximale
+# Wert 7 tritt am haefigsten auf.
+# Ein deutlich groesserer Teil der Personen hat einen Mathe-LK belegt.
+
+
 #Boxplots fuer Alter, Interesse an Mathe und Interesse an Programmieren
 p <- par(mfrow = c(1, 2), las = 1)
-boxplot(daten[2], main = "Boxplot des Alters", ylab = "Alter")
-boxplot(daten[4:5],names = c("Interesse an Mathe", "Interesse an Programmieren"),
-        main = "Boxplots von Interesse an Mathe und an Programmieren")
+boxplot(daten[2], main = "Alter", ylab = "Alter")
+boxplot(daten[4:5] ,names = c("Interesse an Mathe", "Interesse an Programmieren"),
+        main = "Interesse an Mathe und an Programmieren")
 par(p)
+
+# Im Boxplot fuer die Variable Alter liegt der Median etwas unter der Mitte der Box,
+# die Whiskers sind etwa gleich lang, nach unten gibt es einen Ausreißer.
+# Das Interesse an Mathe liegt immer ueber dem Wert 3, da die Box bei drei schon
+# beginnt und der Median eher unter der Mitte der Box liegt, scheint das Interesse
+# an Mathe innerhalb des Intervalls [3,7] eher niedrig zu sein.
+# Die Box fuer das Interesse an Programmieren liegt ganz oben, der Median liegt mittig
+# in der Box. Das Interesse an Programmieren ist also insgesamt recht hoch.
+# Nach unten gibt es einen Ausreisser.
+
