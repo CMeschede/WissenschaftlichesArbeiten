@@ -29,29 +29,21 @@ TeilA <- function(x){
 
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken für kategoriale Variablen 
 # berechnet und ausgibt
-TeilB<- function(x){
-  #Verteilung der einzelnen Studiengaenge
-  anzahl_ds <- length(which(x$studienfach=="Data Science"))
-  anzahl_info <- length(which(x$studienfach=="Informatik"))
-  anzahl_mathe <- length(which(x$studienfach=="Mathematik"))
-  anzahl_stat <- length(which(x$studienfach=="Statistik"))
-  
-  #Verteilung Mathe_LK insgesamt
-  mathelk_ins <- length(which(x$mathe_LK=="ja"))
-  
-  #Verteilung Mathe LK zum Studiengang Data Science
-  lk_ds <- length(which(x$studienfach=="Data Science" & x$mathe_LK=="ja"))
-  
-  #Verteilung Mathe LK zum Studiengang Informatik
-  lk_inf <- length(which(x$studienfach=="Informatik" & x$mathe_LK=="ja"))
-  
-  #Verteilung Mathe LK zum Studiengang Mathematik
-  lk_math <- length(which(x$studienfach=="Mathematik" & x$mathe_LK=="ja"))
-  
-  #Verteilung Mathe LK zum Studiengang Statistik
-  lk_stat <- length(which(x$studienfach=="Statistik" & x$mathe_LK=="ja"))
+TeilB <- function(x){
+  List <- list(0, 0, 0, 0, 0, 0)
+  for(i in 1:ncol(x)){
+    X <- numeric(length(unique(x[,i])))
+    for(j in 1:length(unique(x[,i]))){
+      X[j] <-  sum(Datensatz[,i] == unique(Datensatz[,i])[j])
+      names(X) <- unique(x[,i])
+      List[[i]] <- X
+    }
+  }
+  names(List) <- names(x)
+  List[[1]] <- NULL
+  List[[1]] <- NULL
+  return(List)
 }
-
 
 # (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken für den Zusammenhang zwischen 
 # zwei kategorialen Variablen berechnet ausgibt
