@@ -74,6 +74,14 @@ TeilC(daten$interesse_an_mathe, daten$interesse_an_prog)
 #Weiter oben ließ sich bereits feststellen, dass 26 dieser 28 die Informatikstudenten sind. Es scheint, als ob ein hohes Interesse an
 #Programmieren mit einem niedrigen Interesse an Mathematik zusammenhängt.
 
+
+TeilC(daten$studienfach, daten$mathe_LK)
+#             ja nein
+#Data Science 20   11
+#Informatik   19    7
+#Mathematik    9    3
+#Statistik    23    8
+
 # (d)
 
 TeilD(daten$alter, daten$mathe_LK)
