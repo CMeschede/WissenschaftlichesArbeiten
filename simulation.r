@@ -10,7 +10,7 @@ studienfach
 
 #(3)
 #Zusammenhaenge: 
-# Interesse an Mathe: 7 = Mathestudent*in, 5 = Statistik- oder Data Sciencestudent*in und 3 = Informatikstudent*in
+# Interesse an Mathe: 7 = Mathestudent*in, 3-7 = Statistik- oder Data Sciencestudent*in und 3 = Informatikstudent*in
 simulate_interest_math <- function( studienfach ){
   iam <- c()
   for (i in studienfach){
