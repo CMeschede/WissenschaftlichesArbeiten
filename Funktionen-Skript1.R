@@ -56,7 +56,7 @@ TeilB<- function(x){
 # (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken für den Zusammenhang zwischen 
 # zwei kategorialen Variablen berechnet ausgibt
 
-TeilD <- function(x){
+TeilC <- function(x){
 apply(x, 2, table)
 }
 
