@@ -13,6 +13,18 @@ daten$mathe_LK <- as.factor(daten$mathe_LK)
 
 # (d)
 
+TeilD(daten$alter, daten$mathe_LK)
+# Für y = ja :  arithmetisches Mittel: 25.29577 , Median: 26 ,
+#               Varianz: 3.725553 , Standardabweichung: 1.930169 
+# Für y = nein :  arithmetisches Mittel: 24.96552 , Median: 25 ,
+#                 Varianz: 4.320197 , Standardabweichung: 2.078508 
+# Differenz der arithmetischen Mittel: 0.3302574 
+# Differenz der Standardabweichungen: -0.1483391
+
+# Personen mit Mathe-LK sind tendenziell etwas aelter als Personen ohne Mathe-LK.
+# Das Alter von Personen ohne Mathe-LK streut etwas mehr als das Alter von Personen 
+# mit Mathe-LK.
+
 # (e)
 
 TeilE(daten$alter)
