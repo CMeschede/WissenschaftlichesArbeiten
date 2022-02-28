@@ -90,7 +90,7 @@ TeilD <- function(x,y){
 }
 # (e) Eine Funktion, die eine mindestens ordinal skalierte Variable
 # quantilbasiert kategorisiert (z.B. in „niedrig“, „mittel“, „hoch“)
-teilE <- function(x){
+TeilE <- function(x){
   #Weil wir eine Primzahl (7) zum Aufteilen bekommen, werden die Kategorien ungleich gewichtet eingeteilt:
   #1 - 3 = niedrig, 4 oder 5 = mittel, 6 oder 7 = hoch
   res <- c()
