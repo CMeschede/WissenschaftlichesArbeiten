@@ -4,7 +4,7 @@
 
 # (a) Eine Funktion, die verschiedene geeignete deskriptive Statistiken für metrische Variablen 
 # berechnet und ausgibt
-Teila <- function(x){
+TeilA <- function(x){
   y <- 0
   X <- as.data.frame(matrix(0, 7, ncol(x)))
   names(X) <- names(x)
@@ -29,7 +29,7 @@ Teila <- function(x){
 
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken für kategoriale Variablen 
 # berechnet und ausgibt
-Teilb <- function(x){
+TeilB<- function(x){
   #Verteilung der einzelnen Studiengaenge
   anzahl_ds <- length(which(x$studienfach=="Data Science"))
   anzahl_info <- length(which(x$studienfach=="Informatik"))
@@ -63,7 +63,7 @@ apply(x, 2, table)
 # zwischen einer metrischen und einer dichotomen Variable berechnet und ausgibt
 
 # x = metrische Variable; y = dichotome Variable
-Teild <- function(x,y){
+TeilD <- function(x,y){
   # Frage ab, ob die eingegebenen Variablen die erforderliche Form haben
   if(!is.numeric(x)){
     stop("Die Variable x ist nicht numerisch.")
@@ -86,18 +86,37 @@ Teild <- function(x,y){
       "\nDifferenz der arithmetischen Mittel:", mean(A) - mean(B),
       "\nDifferenz der Standardabweichungen:", sd(A) - sd (B))
 }
+# (e) Eine Funktion, die eine mindestens ordinal skalierte Variable
+# quantilbasiert kategorisiert (z.B. in „niedrig“, „mittel“, „hoch“)
+teilE <- function(x){
+  #Weil wir eine Primzahl (7) zum Aufteilen bekommen, werden die Kategorien ungleich gewichtet eingeteilt:
+  #1 - 3 = niedrig, 4 oder 5 = mittel, 6 oder 7 = hoch
+  res <- c()
+  for( i in x ){
+    if(i == 1 || i == 2 || i == 3){
+      res <- append(res, "niedrig")
+    }
+    if( i == 4 || i == 5 ){
+      res <- append(res, "mittel")
+    }
+    if( i == 6 || i == 7 ){
+      res <- append(res, "hoch")
+    }
+  }
+  return(res)
+}
 
 # (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier kategorialen
 # Variablen erstellt
 
 #Mosaikplot mit drei Variablen:
-Teilf1 <- function(x, y, z, main = "Mosaikplot von drei Variablen",...){
+TeilF1 <- function(x, y, z, main = "Mosaikplot von drei Variablen",...){
   # mit ... koennen der Plot-Funktion zusaetzliche Parameter uebergeben werden
   mymosaic(x, y, z, main, ...)
 }
 
 #Barplots fuer mehrere Variablen:
-Teilf2 <- function(x, main = names(x), ...){
+TeilF2 <- function(x, main = names(x), ...){
   # mit ... koennen der Plot-Funktion zusaetzliche Parameter uebergeben werden
   p <- par(mfrow = c(1,length(x)))
   for(i in seq(1, length(x))){
