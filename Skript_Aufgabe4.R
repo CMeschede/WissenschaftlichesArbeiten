@@ -15,6 +15,35 @@ daten$mathe_LK <- as.factor(daten$mathe_LK)
 
 # (e)
 
+TeilE(daten$alter)
+# dummy
+# hoch  mittel niedrig 
+# 26      56      18 
+
+# Da das Alter als ganze Zahl kodiert ist und einige Werte doppelt vorkommen und die
+# Quartilwerte selbst in die Kategorie "mittel" eingeordnet werden, befinden sich
+# etwas ueber die Haelfte der Werte in der Katgorie "mittel". In der Kategorie "hoch"
+# sind etwas mehr Werte enthalten als in der Kategorie "niedrig".
+
+TeilE(daten$interesse_an_mathe)
+# dummy
+# hoch mittel 
+# 29     71 
+
+# Aus den selben Gruenden wie beim Alter finden sich ein Grossteil der Werte in der
+# Kategorie "mittel". Es werden keine Werte in die Kategorie "niedrig" eingeordnet, da
+# zu viele Werte bei 3 liegen, als dass der Wert unter dem Quantil von 0.33 liegen
+# wuerde.
+
+TeilE(daten$interesse_an_prog)
+# dummy
+# mittel niedrig 
+# 81      19
+# Auch hier befinden sich aus den gleichen Gruenden der Grossteil der Werte in der
+# Kategorie "mittel". Im Gegensatz zum Interesse an Mathe liegen hier keine Werte
+# in der Kategorie "hoch", aber welche in der Kategorie "niedrig". Der Grund ist
+# allerdings identisch wie zuvor, nur in die andere "Richtung".
+
 # (f)
 
 TeilF1(daten$interesse_an_mathe,  daten$studienfach, daten$mathe_LK,
